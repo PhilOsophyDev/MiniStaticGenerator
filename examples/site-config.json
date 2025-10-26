@@ -1,0 +1,6 @@
+{
+  "templatesDir": "templates",
+  "contentDir": "examples/content",
+  "assetsDir": "examples/assets",
+  "outputDir": "output"
+}

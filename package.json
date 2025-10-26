@@ -1,0 +1,18 @@
+{
+  "name": "mini-static-generator",
+  "version": "1.0.0",
+  "description": "A minimal static site generator for learning and experimentation",
+  "main": "index.js",
+  "bin": {
+    "minigen": "./cli.js"
+  },
+  "scripts": {
+    "build": "node index.js examples/site-config.json",
+    "test": "node tests/test_parser.js && node tests/test_renderer.js"
+  },
+  "author": "OpenSourceLearner",
+  "license": "MIT",
+  "dependencies": {
+    "marked": "^7.0.0"
+  }
+}
