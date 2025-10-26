@@ -1,14 +1,29 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <title>{{title}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>{{title}} | Your Site Name</title>
+  <meta name="description" content="{{description}}"/>
+  <link rel="canonical" href="{{canonical_url}}"/>
+  
+  <link rel="icon" type="image/png" href="/assets/img/favicon-32x32.png" sizes="32x32">
+  
+  <link rel="stylesheet" href="/assets/css/styles.css"/>
+  
+  {{> partials/head_extras.html}}
 </head>
 <body>
   {{> partials/header.html}}
+  
   <main>
-    {{content}}
+    <article>
+      {{content}}
+    </article>
   </main>
+  
   {{> partials/footer.html}}
+  
+  <script src="/assets/js/scripts.js"></script>
 </body>
 </html>
