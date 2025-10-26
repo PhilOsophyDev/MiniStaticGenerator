@@ -1,6 +1,10 @@
 {
   "templatesDir": "templates",
+  "layoutsDir": "layouts", 
+  "partialsDir": "templates/partials", 
   "contentDir": "examples/content",
+  "dataDir": "data",
   "assetsDir": "examples/assets",
+  "staticDir": "static",
   "outputDir": "output"
 }
