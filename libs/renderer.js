@@ -17,17 +17,15 @@ function loadTemplate(templatesDir, name) {
 }
 
 function resolvePartials(tmpl, templatesDir, seen = new Set()) {
-  // include syntax: {{> path/to/file.html }}
   return tmpl.replace(/{{>\s*([^}]+)\s*}}/g, (m, inc) => {
     const incPath = inc.trim();
-    // Prevent recursive includes
     if(seen.has(incPath)) return '';
     seen.add(incPath);
     const content = loadTemplate(templatesDir, incPath);
-    // Recursively resolve nested partials
     return resolvePartials(content, templatesDir, seen);
   });
 }
+
 
 function applyPlaceholders(tmpl, meta, content) {
   let out = tmpl.replace(/{{\s*content\s*}}/g, content);
