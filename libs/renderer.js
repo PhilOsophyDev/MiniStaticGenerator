@@ -38,12 +38,10 @@ function applyPlaceholders(tmpl, meta, content) {
 }
 
 function rewriteAndCopyAssets(html, options) {
-  // options: outputDir, contentPath, assetsDir
   const srcs = utils.findImageSrcs(html);
   let out = html;
   srcs.forEach(src => {
-    if(src.startsWith('http://') || src.startsWith('https://')) return; // external skip
-    // resolve source on disk relative to contentPath or assetsDir
+    if(src.startsWith('http://') || src.startsWith('https://')) return;
     let candidate = path.join(options.contentPath, src);
     if(!fs.existsSync(candidate)) {
       candidate = path.join(options.assetsDir, src);
@@ -52,7 +50,6 @@ function rewriteAndCopyAssets(html, options) {
       const destRel = path.posix.join('assets', path.basename(src));
       const destFull = path.join(options.outputDir, destRel);
       utils.copyFile(candidate, destFull);
-      // replace src in html
       out = out.split(src).join(destRel);
     }
   });
